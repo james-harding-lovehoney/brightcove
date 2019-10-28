@@ -15,7 +15,7 @@ videojs.registerPlugin('videoLoop', function() {
   // +++ Loop video 3 times +++
   function playVideo () {
     // Check the number of times the video has played
-    if (videoLoopNum < 3) {
+    if (videoLoopNum < 10) {
       // Start video playback
       myPlayer.play();
       // Increment number of times video played
