@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Creating a Video Loop</title>
+</head>
+
+<body>
+  <video id="myPlayerID"
+	  data-video-id="5045678907001"
+		data-account="1752604059001"
+		data-player="ByZN9ymFZ"
+		data-embed="default"
+		data-application-id
+		class="video-js"
+		controls
+		width="640"
+		height="360"></video>
+	<script src="//players.brightcove.net/1752604059001/ByZN9ymFZ_default/index.min.js"></script>
+
+  <!-- Custom script -->
+  <script type="text/JavaScript">
+		var myPlayer,
+        videoLoopNum = 0;
+
+    videojs("myPlayerID").ready(function(){
+			// Get a reference to the player when it is ready
+      myPlayer = this;
+      // Listen for the "ended" event and play the video
+      // You can also do this by adding the loop attribute to the player code
+      myPlayer.on("ended", function () {
+          playVideo();
+      });
+
+      // Play the video first time
+      playVideo();
+    });
+
+		// +++ Loop video 3 times +++
+    function playVideo () {
+      // Check the number of times the video has played
+      if (videoLoopNum < 3) {
+          // Start video playback
+          myPlayer.play();
+          // Increment number of times video played
+          videoLoopNum++;
+      }
+    }
+	</script>
+
+</body>
+</html>
